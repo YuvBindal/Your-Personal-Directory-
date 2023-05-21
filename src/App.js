@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Navbar} from './MyComponents/Navbar'
+import {Footer} from './MyComponents/Footer'
+import {Listing} from './MyComponents/Listing'
+import {ListedRestaurant} from './MyComponents/listedRestaurant'
+import {ListedANM} from './MyComponents/listedANM'
+import {ListedElectronics} from './MyComponents/listedElectronics'
+
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+    <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route path="/"/>
+        <Route path="/listing" element={<Listing/>} />
+        <Route path="/listing/restaurant" element={<ListedRestaurant/>} />
+        <Route path="/listing/ANM" element={<ListedANM/>} />
+        <Route path="/listing/Electronics" element={<ListedElectronics/>} />
+
+      </Routes>
+
+      
+      <Footer/>
+
+    </BrowserRouter>
+   
+    </>
   );
 }
 
